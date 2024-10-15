@@ -1,0 +1,22 @@
+package tugaszakat;
+
+import java.util.Scanner;
+
+public class ZakatKholif {
+
+    public static void main(String[] args) {
+        // Membuat scanner untuk membaca input dari pengguna
+        Scanner input = new Scanner(System.in);
+
+        // Meminta pengguna memasukkan jumlah harta dalam bentuk desimal
+        System.out.print("Masukkan jumlah harta (uang) yang dimiliki: ");
+        double harta = input.nextDouble();
+
+        // Menghitung zakat maal (2.5% dari total harta)
+        double zakat = harta * 2.5 / 100;
+
+        // Menampilkan jumlah zakat yang harus dibayarkan
+        System.out.println("Jumlah zakat yang harus dibayarkan: " + zakat);
+    }
+}                                                                                                  
+
