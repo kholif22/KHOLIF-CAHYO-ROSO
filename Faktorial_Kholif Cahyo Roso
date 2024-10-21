@@ -1,0 +1,29 @@
+package faktorial;
+
+import java.util.Scanner;
+
+public class Faktorial {
+
+    public static void main(String[] args) {
+        // Membuat Scanner untuk input dari pengguna
+        Scanner scanner = new Scanner(System.in);
+        
+        // Meminta pengguna memasukkan angka
+        System.out.print("Masukkan angka untuk menghitung faktorial: ");
+        int angka = scanner.nextInt();
+        
+        // Menginisialisasi hasil faktorial ke 1 (karena faktorial mulai dari 1)
+        long faktorial = 1;
+        
+        // Melakukan perulangan untuk menghitung faktorial
+        for (int i = 1; i <= angka; i++) {
+            faktorial *= i; // faktorial = faktorial * i
+        }
+        
+        // Menampilkan hasil faktorial
+        System.out.println("Faktorial dari " + angka + " adalah: " + faktorial);
+        
+        // Menutup scanner
+        scanner.close();
+    }
+}
