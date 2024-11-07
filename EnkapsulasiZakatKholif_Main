@@ -1,0 +1,32 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package enkapsulasiZakat;
+
+/**
+ *
+ * @author MSI
+ */
+// Kelas Main
+public class Main {
+    public static void main(String[] args) {
+        // Membuat objek Muzaki dengan konstruktor
+        Muzaki muzaki = new Muzaki("Kholif Cahyo Roso", 20, 6000000);
+
+        // Menggunakan getter untuk mendapatkan informasi
+        System.out.println("Nama Muzaki: " + muzaki.getNama());
+        System.out.println("Umur Muzaki: " + muzaki.getUmur());
+        System.out.println("Penghasilan Muzaki: Rp" + muzaki.getPenghasilan());
+
+        // Menampilkan zakat yang harus dibayar (void method)
+        muzaki.tampilkanZakat();
+
+        // Menggunakan setter untuk memperbarui data
+        muzaki.setPenghasilan(8000000);
+        System.out.println("\nPenghasilan setelah diperbarui: Rp" + muzaki.getPenghasilan());
+
+        // Menampilkan zakat setelah penghasilan diperbarui
+        muzaki.tampilkanZakat();
+    }
+}
