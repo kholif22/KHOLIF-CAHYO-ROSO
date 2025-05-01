@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+struct Item {
+    int volume; // dalam liter
+    int value;  // nilai kegunaan
+};
+
+int main() {
+    cout << "=================================================" << endl;
+    cout << "  Penyelesaian Knapsack Problem - Pindahan Kost  " << endl;
+    cout << "=================================================" << endl << endl;
+
+    cout << "Nama  : Kholif Cahyo Roso" << endl;
+    cout << "NIM   : 23533808" << endl;
+    cout << "Kelas : 4D" << endl << endl;
+
+    int n, capacity = 153;
+    cout << "Simulasi Pindahan Kost menggunakan mobil dengan bagasi 153 liter.\n";
+    cout << "Masukkan jumlah barang yang ingin dibawa: ";
+    cin >> n;
+
+    vector<Item> items(n);
+    cout << "Masukkan volume (liter) dan nilai kegunaan tiap barang:\n";
+    for (int i = 0; i < n; ++i) {
+        cout << "Barang " << i + 1 << " (volume dan nilai): ";
+        cin >> items[i].volume >> items[i].value;
+    }
+
+    int max_value = 0;
+    vector<int> best_combination;
+    int total = pow(2, n);
+
+    for (int i = 0; i < total; ++i) {
+        int total_volume = 0;
+        int total_value = 0;
+        vector<int> current_combination;
+
+        for (int j = 0; j < n; ++j) {
+            if (i & (1 << j)) {
+                total_volume += items[j].volume;
+                total_value += items[j].value;
+                current_combination.push_back(j);
+            }
+        }
+
+        if (total_volume <= capacity && total_value > max_value) {
+            max_value = total_value;
+            best_combination = current_combination;
+        }
+    }
+
+    cout << "\nBarang terbaik yang bisa dibawa untuk pindahan kost:\n";
+    for (int idx : best_combination) {
+        cout << "Barang " << idx + 1 << " (Volume: " << items[idx].volume 
+             << "L, Nilai: " << items[idx].value << ")\n";
+    }
+    cout << "Total Nilai Kegunaan: " << max_value << endl;
+
+    return 0;
+}
